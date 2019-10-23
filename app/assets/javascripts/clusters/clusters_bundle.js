@@ -37,10 +37,13 @@ export default class Clusters {
       installJupyterPath,
       installKnativePath,
       updateKnativePath,
+      installElasticStackPath,
       installPrometheusPath,
       managePrometheusPath,
       clusterEnvironmentsPath,
       hasRbac,
+      providerType,
+      preInstalledKnative,
       clusterType,
       clusterStatus,
       clusterStatusReason,
@@ -50,6 +53,7 @@ export default class Clusters {
       environmentsHelpPath,
       clustersHelpPath,
       deployBoardsHelpPath,
+      cloudRunHelpPath,
       clusterId,
     } = document.querySelector('.js-edit-cluster-form').dataset;
 
@@ -65,10 +69,13 @@ export default class Clusters {
       environmentsHelpPath,
       clustersHelpPath,
       deployBoardsHelpPath,
+      cloudRunHelpPath,
     );
     this.store.setManagePrometheusPath(managePrometheusPath);
     this.store.updateStatus(clusterStatus);
     this.store.updateStatusReason(clusterStatusReason);
+    this.store.updateProviderType(providerType);
+    this.store.updatePreInstalledKnative(preInstalledKnative);
     this.store.updateRbac(hasRbac);
     this.service = new ClustersService({
       endpoint: statusPath,
@@ -80,6 +87,7 @@ export default class Clusters {
       installJupyterEndpoint: installJupyterPath,
       installKnativeEndpoint: installKnativePath,
       updateKnativeEndpoint: updateKnativePath,
+      installElasticStackEndpoint: installElasticStackPath,
       clusterEnvironmentsEndpoint: clusterEnvironmentsPath,
     });
 
@@ -153,6 +161,9 @@ export default class Clusters {
             ingressHelpPath: this.state.ingressHelpPath,
             managePrometheusPath: this.state.managePrometheusPath,
             ingressDnsHelpPath: this.state.ingressDnsHelpPath,
+            cloudRunHelpPath: this.state.cloudRunHelpPath,
+            providerType: this.state.providerType,
+            preInstalledKnative: this.state.preInstalledKnative,
             rbac: this.state.rbac,
           },
         });

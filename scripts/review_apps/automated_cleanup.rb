@@ -18,7 +18,8 @@ class AutomatedCleanup
   ].freeze
 
   def self.ee?
-    ENV['CI_PROJECT_NAME'] == 'gitlab-ee' || File.exist?('CHANGELOG-EE.md')
+    # Support former project name for `dev`
+    %w[gitlab gitlab-ee].include?(ENV['CI_PROJECT_NAME'])
   end
 
   def initialize(project_path: ENV['CI_PROJECT_PATH'], gitlab_token: ENV['GITLAB_BOT_REVIEW_APPS_CLEANUP_TOKEN'])
@@ -61,6 +62,7 @@ class AutomatedCleanup
     gitlab.deployments(project_path, per_page: DEPLOYMENTS_PER_PAGE).auto_paginate do |deployment|
       environment = deployment.environment
 
+      next unless environment
       next unless environment.name.start_with?('review/')
       next if checked_environments.include?(environment.slug)
 
