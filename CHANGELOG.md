@@ -2,6 +2,181 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 42.0.0 (2020-05-22)
+
+### Removed (2 changes, 2 of them are from the community)
+
+- Removed UltraAuth integration for OmniAuth. !29330 (Kartikey Tanna)
+- Remove temporary datepicker position fix as it is no longer required. !31836 (Arun Kumar Mohan)
+
+### Fixed (77 changes, 47 of them are from the community)
+
+- Fix 'Active' checkbox text in Pipeline Schedule form to be a label. !27054 (Jonston Chan)
+- Fix merge request note label URLs. !30428 (Lee Tickett)
+- Fix group transfer service to deny moving group to its subgroup. !31495 (Abhisek Datta)
+- Fix issuable listings with any label filter. !31729
+- Move prepend to last in ee-app-services. !31838 (Rajendra Kadam)
+- Fallback to lowest visibility level in snippet visibility radio. !31847 (Jacopo Beschi @jacopo-beschi)
+- Add class stubs and fix leaky constant alert in query limit helper spec. !31949 (Rajendra Kadam)
+- Remove usage of spam constants in spec. !31959 (Rajendra Kadam)
+- Fix leaky constant issue in uninstall progress service check. !32036 (Rajendra Kadam)
+- Fix leaky constant issue in commit entity spec. !32039 (Rajendra Kadam)
+- Fix leaky constant issue in task completion status spec. !32043 (Rajendra Kadam)
+- Fix leaky constant issue in admin mode migration spec. !32074 (Rajendra Kadam)
+- Fix leaky constant issue in sidekiq middleware server metric spec. !32104 (Rajendra Kadam)
+- Fix leaky constant issue in sidekiq middleware client metric spec. !32108 (Rajendra Kadam)
+- Fix leaky constant issue in path regex spec. !32115 (Rajendra Kadam)
+- Fix leaky constant issue importer and cache headers spec. !32122 (Rajendra Kadam)
+- Fix leaky constant issue in relation factory spec. !32129 (Rajendra Kadam)
+- Fix leaky constant issue in test coverage spec. !32134 (Rajendra Kadam)
+- Fix leaky constant issue in diff collection spec. !32163 (Rajendra Kadam)
+- Fix leaky constant issue in migration helpers, with lock retries and ignored cols spec. !32170 (Rajendra Kadam)
+- Fix leaky constant issue in factory spec. !32174 (Rajendra Kadam)
+- Fix leaky constant issue in creds factory spec. !32176 (Rajendra Kadam)
+- Use applogger in project import state file. !32182 (Rajendra Kadam)
+- Use applogger in project.rb. !32183 (Rajendra Kadam)
+- Use applogger in chat_team.rb. !32184 (Rajendra Kadam)
+- Use applogger in repository model. !32185 (Rajendra Kadam)
+- Use applogger in build and ssh host key. !32187 (Rajendra Kadam)
+- Use applogger in cache attrs and highest role ruby files. !32189 (Rajendra Kadam)
+- Use applogger in legacy project and namespace. !32190 (Rajendra Kadam)
+- Use applogger in base.rb. !32191 (Rajendra Kadam)
+- Use applogger in usage ping and webhook service. !32192 (Rajendra Kadam)
+- Use applogger in exclusive_lease_guard. !32194 (Rajendra Kadam)
+- Use applogger in groups destroy service and label create service. !32195 (Rajendra Kadam)
+- Use applogger in merge_service.rb. !32196 (Rajendra Kadam)
+- Use applogger in project create service and after import service. !32198 (Rajendra Kadam)
+- Use applogger in update stats service. !32200 (Rajendra Kadam)
+- Use applogger in base attachment service. !32201 (Rajendra Kadam)
+- Use applogger in export service. !32203 (Rajendra Kadam)
+- Use applogger in akismet service. !32205 (Rajendra Kadam)
+- Use applogger in file mover file. !32206 (Rajendra Kadam)
+- Use applogger in commit signature worker. !32207 (Rajendra Kadam)
+- Use applogger in delete user worker. !32209 (Rajendra Kadam)
+- Use applogger in email receiver worker. !32211 (Rajendra Kadam)
+- Use applogger in artifact worker. !32212 (Rajendra Kadam)
+- Use applogger in new note worker. !32213 (Rajendra Kadam)
+- Fix duplicate filename displayed in design todos. !32274 (Arun Kumar Mohan)
+- Add value length validations for instance level variable. !32303
+- Resolve image overflow at releases list panel. !32307
+- Clean up shared/tmp folder after Import/Export. !32326
+- Fix creating release evidence if release is created via UI. !32441
+- GraphQL hasNextPage and hasPreviousPage return correct values. !32476
+- Fix loading and empty state styling for alerts list. !32531
+- Fix time_tracking help link. !32552
+- Don't display confidential note icon on confidential issue public notes. !32571
+- Update container expiration policy database defaults. !32600
+- Fix rendering of emojis in status tooltips. !32604
+- Hid copy contents button when blob has rendering error. !32632
+- Avoid refresh to show endedAt after mutation. !32636
+- Skip the individual JIRA issues if failed to import vs failing the whole batch. !32673
+- Fix Geo replication for design thumbnails. !32703
+- Fix broken help link on operations settings page. !32722
+- Allow different in bulk editing issues. !32734
+- Fix 404s downloading build artifacts. !32741
+- Fix "Broadcast Messages" table overflow and button alignment. !32801
+- Make commits author button confirm to Pajamas specs. !32821
+- Fix filename duplication in design notes in activity feeds. !32823 (Arun Kumar Mohan)
+- Prevent multiple Auto DevOps deployment jobs running concurrently when using manual rollout. !32824
+- Fix Auto DevOps manual rollout jobs not being allowed to fail. !32865
+- Conan package registry support for the conan_export.tgz file. !32866
+- Fix plural message in account deletion section. !32868
+- Fix a bug where some Vue apps would be unable to load when DAG tab is disabled. !32966
+- Fix undefined error in Gitlab::Git::Diff. !32967
+- Fix spelling error on Ci::RunnersFinder. !32985 (Arthur de Lapertosa Lisboa)
+- Fix polling for resource events. !33025
+- Fix broken CSS classes inside alert management list. !33038
+- Fix bug in snippet create mutation with non ActiveRecord errors. !33085
+- Footer system message fix.
+
+### Changed (13 changes, 2 of them are from the community)
+
+- Add a GraphQL endpoint to fetch Jira projects through its REST API. !28190
+- Rate limit project export by user. !31719
+- Externalize i18n strings from ./app/views/shared/_promo.html.haml. !32109 (Gilang Gumilar)
+- Add Usage Ping count for all searches. !32111
+- Add tags_count to container registry api and controller. !32141
+- Externalize i18n strings from ./app/views/shared/milestones/_form_dates.html.haml. !32162 (Gilang Gumilar)
+- Improve Container Registry UI header. !32424
+- Allow the snippet create service to accept an array of files. !32649
+- Exclude extra.server fields from exceptions_json.log. !32770
+- Allow the snippet update service to accept an array of files. !32832
+- Add new issue link to email notification header. !32833
+- Clean up gitlab-shell install-from-source path. !33057
+- Assign alerts sidebar base.
+
+### Performance (4 changes, 1 of them is from the community)
+
+- Improve performance of commit search by limiting the number of results requested. !32260
+- Update index_ci_builds_on_commit_id_and_artifacts_expireatandidpartial index for secret_detection. !32584
+- Use build_stubbed to avoid interacting with the DB in todos helper specs. !32906 (Arun Kumar Mohan)
+- Adjust condition for partial indexes on services table. !33044
+
+### Added (32 changes, 5 of them are from the community)
+
+- Add doc for custom validators in api styleguide. !26734 (Rajendra Kadam)
+- Show estimate on issues list. !28271 (Lee Tickett)
+- Add a link to the `renamed` viewer to fully expand the renamed file (if it's text). !28448
+- Focus and toggle metrics dashboard panels via keyboard. !28603
+- Remove `scoped_approval_rules` feature flag. !28864 (Lee Tickett)
+- Add finder for group-level runners. !29283 (Arthur de Lapertosa Lisboa)
+- Add missing Merge Request fields. !30935
+- Add usage data metrics for terraform states. !31280
+- Add usage data metrics for terraform reports. !31281
+- SpamVerdictService can call external spam check endpoint. !31449
+- Add DAG serializer for pipelines controller. !31583
+- Save repository storages in application settings with weights. !31645
+- Add API endpoint for resource milestone events. !31720
+- Improve Add/Remove Issue Labels API. !31864 (Lee Tickett)
+- Add mutation to create a merge request in GraphQL. !31867
+- Add warning popup for Elastic Stack update. !31972
+- Filter pipelines based on url query params. !32230
+- Add metrics for Redis usage during Sidekiq job execution. !32265
+- Add filters to merge request fields. !32328
+- Add btree_gist PGSQL extension and add DB constraints for Iteration date ranges. !32335
+- Adds sorting by column to alert management list. !32478
+- Expose Jira imported issues count in GraphQL. !32580
+- Organize alerts by status tabs. !32582
+- Add metrics for Redis usage during web requests. !32605
+- Set fingerprints and increment events count for Alert Management alerts. !32613
+- Allow user to add custom links to their metrics dashboard panels. !32646
+- Add tags to experimental queue selector attributes. !32651
+- Customize the Cloud Native Buildpack builder used with Auto Build. !32691
+- Monitor:Health metrics instrumenation. !32846
+- Adds PostHog as a CI/CD Managed Application. !32856
+- Groups API has top_level_only option to exclude subgroups. !32870
+- Create operations_feature_flags_issues table. !32876
+
+### Other (26 changes, 17 of them are from the community)
+
+- Improve fast-forward merge is not possible message. !22834 (Ben Bodenmiller)
+- Remove unused WAF indexes from CI variables. !30021
+- Update the visual design of badges in some areas. !31646
+- Extract featurable concern from ProjectFeature. !31700 (Alexander Randa)
+- Remove update function logic from list model. !31900 (nuwe1)
+- Replace slot syntax for Vue 3 migration. !31987 (gaslan)
+- Update deprecated slot syntax in ./app/assets/javascripts/pages/admin/projects/index/components/delete_project_modal.vue. !31994 (Gilang Gumilar)
+- Update deprecated slot syntax in ./app/assets/javascripts/clusters/components/remove_cluster_confirmation.vue. !32010 (Gilang Gumilar)
+- Update deprecated slot syntax in ./app/assets/javascripts/environments/components/environments_app.vue. !32011 (Gilang Gumilar)
+- Remove addAssignee logic from issue model. !32231 (nuwe1)
+- Remove findLabel logic from issue model. !32239 (nuwe1)
+- Remove findIssue logic from list model. !32241 (nuwe1)
+- Remove moveIssue logic from list model. !32242 (nuwe1)
+- Remove newIssue logic from list model. !32244 (nuwe1)
+- Remove removeAllAssignees logic from issue model. !32247 (nuwe1)
+- Remove removeAssignee logic from issue model. !32248 (nuwe1)
+- Update alert management mobile table alignment. !32295
+- Update GitLab Runner Helm Chart to 0.17.0. !32634
+- Extend "Remember me" token after each login. !32730
+- Assign alerts sidebar container fix. !32743
+- Add anchor for creating a branch. !32745
+- Tidy. !32759 (Lee Tickett)
+- Less verbose JiraService error logs. !32847
+- Remove obsolete users.ghost column. !32957
+- Move NoPrimary table def to last context in spec. !33015 (Rajendra Kadam)
+- Remove removeIssue logic from list model. (nuwe1)
+
+
 ## 13.0.0 (2020-05-22)
 
 ### Removed (20 changes, 5 of them are from the community)
