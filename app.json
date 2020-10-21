@@ -1,0 +1,15 @@
+
+{
+  "name": "GitLab on Heroku",
+  "description": "Version control for your server that runs on Heroku",
+  "repository": "https://github.com/pmq20/gitlab-on-heroku",
+  "keywords": ["git", "gitlab"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    }
+  ]
+}
